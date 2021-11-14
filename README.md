@@ -116,3 +116,9 @@ file [3rd-party-licenses.txt](https://github.com/uuvsimulator/uuv_simulator/blob
 [![ROS Kinetic](https://img.shields.io/badge/ROS%20Distro-kinetic-brightgreen.svg)](http://repositories.ros.org/status_page/ros_kinetic_default.html?q=uuv_simulator)
 [![ROS Lunar](https://img.shields.io/badge/ROS%20Distro-lunar-brightgreen.svg)](http://repositories.ros.org/status_page/ros_lunar_default.html?q=uuv_simulator)
 [![ROS Melodic](https://img.shields.io/badge/ROS%20Distro-melodic-brightgreen.svg)](http://repositories.ros.org/status_page/ros_melodic_default.html?q=uuv_simulator)
+
+
+# Troubleshooting
+
+### Error: `CV_AA` was not declared in this scope 
+* Replace CV_AA with cv::LINE_AA
