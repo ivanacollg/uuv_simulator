@@ -8,7 +8,7 @@
   <arg name="pitch" default="0.0"/>
   <arg name="yaw" default="0.0"/>
 
-  <arg name="mode" default="sonar"/>
+  <arg name="mode" default="sonar_cerqueira"/>
   <arg name="namespace" default="rexrov"/>
   <arg name="use_ned_frame" default="false"/>
 
