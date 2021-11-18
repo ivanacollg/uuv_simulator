@@ -209,7 +209,9 @@
           </save>
         </camera>
 	    <plugin filename="libimage_sonar_ros_plugin.so" name="forward_sonar${suffix}_controller">
-		  <topicName>${topic}</topicName>
+		  <!--topicName>${topic}</topicName-->
+                <sonarGroupTopicName>forward_sonar_${suffix}</sonarGroupTopicName>
+          <imageTopicName>forward_sonar_${suffix}/raw_image</imageTopicName>
           <frameName>forward_sonar${suffix}_optical_frame</frameName>
         </plugin>
         <always_on>true</always_on>

@@ -24,6 +24,7 @@
   <xacro:include filename="$(find uuv_descriptions)/urdf/rexrov.gazebo.xacro"/>
 
   <xacro:forward_looking_sonar
+      topic="lol"
       namespace="${namespace}"
       suffix="horiz"
       parent_link="${namespace}/base_link"
@@ -35,20 +36,6 @@
       height="768">
     <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
     <origin xyz="1.15 0 0.35" rpy="0 0 0"/>
-  </xacro:forward_looking_sonar>
-
-  <xacro:forward_looking_sonar
-      namespace="${namespace}"
-      suffix="vert"
-      parent_link="${namespace}/base_link"
-      mass="0.015"
-      update_rate="40"
-      samples="512"
-      fov="2.26893"
-      width="768"
-      height="768">
-    <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
-    <origin xyz="1.15 0 0.45" rpy="1.5707 0 0"/>
   </xacro:forward_looking_sonar>
 
   <!-- Create the RexROV vehicle -->
@@ -67,7 +54,6 @@
       </plugin>
     </gazebo>
   </xacro:rexrov_base>
-
 
   <!-- Joint state publisher plugin -->
   <xacro:default_joint_state_publisher namespace="$(arg namespace)" update_rate="50"/>
