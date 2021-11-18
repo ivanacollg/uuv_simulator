@@ -202,7 +202,7 @@
           </image>
           <clip>
             <near>0.1</near>
-            <far>17</far>
+            <far>30</far>
           </clip>
           <save enabled="true">
             <path>/tmp/camera</path>

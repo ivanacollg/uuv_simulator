@@ -709,7 +709,7 @@ cv::Mat GazeboRosImageSonar::ConstructSonarImage(cv::Mat& depth, cv::Mat& normal
   std::vector<cv::Mat> images(3);
   cv::split(normals, images);
 
-  float intensity = 100.; // target strength
+  float intensity = 200.; // target strength
   float SL = 200.; // source level
   float NL = 30; // noise level
   float DI = 0.0; // directivity index
@@ -729,7 +729,7 @@ cv::Mat GazeboRosImageSonar::ConstructSonarImage(cv::Mat& depth, cv::Mat& normal
 
   // TODO: make these into proper parameters
   cv::Mat TS = intensity*images[2]; // target strength, probably dir should be DI
-  cv::Mat TL = 5*depth; // transmission loss
+  cv::Mat TL = 2*depth; // transmission loss
   cv::multiply(TL, dist_matrix_, TL);
   cv::Mat SNR = SL - 2.0*TL - (NL-DI) + TS;
   SNR.setTo(0., SNR < 0.);
@@ -850,8 +850,8 @@ void GazeboRosImageSonar::ApplyMedianFilter(cv::Mat& scan)
 
 cv::Mat GazeboRosImageSonar::ConstructScanImage(cv::Mat& depth, cv::Mat& SNR)
 {
-  int rows = 400; // TODO: add a parameter for this
-  float range = 17.; // TODO: get this from the sensor config instead
+  int rows = 600; // TODO: add a parameter for this
+  float range = 30.; // TODO: get this from the sensor config instead
   
   float fov = depthCamera->HFOV().Degree();
   int cols = 2*int(float(rows)*sin(M_PI/180.*fov/2.))+20;
