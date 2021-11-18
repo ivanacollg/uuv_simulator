@@ -32,7 +32,7 @@
     <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find uuv_gazebo)/rviz/controller_demo.rviz"/>
 
     <!-- Run Keyborad Teleoperation node -->
-    <include file="$(find uuv_teleop)/launch/uuv_keyboard_teleop.launch">
+    <include file="$(find uuv_teleop)/launch/uuv_teleop.launch">
         <arg name="uuv_name" value="$(arg uuv_name)"/>
     </include>
 
