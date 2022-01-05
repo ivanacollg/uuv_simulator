@@ -821,7 +821,7 @@ cv::Mat GazeboRosImageSonar::ConstructScanImage(cv::Mat& depth, cv::Mat& SNR)
   float fov = depthCamera->HFOV().Degree();
   int cols = 2*int(float(rows)*sin(M_PI/180.*fov/2.))+20;
 
-  //std::cout << fov << std::endl;
+  //std::cout << cols << std::endl;
   int beams = 512;
 
   cv::Mat scan = cv::Mat::zeros(rows, cols, CV_32FC1);
