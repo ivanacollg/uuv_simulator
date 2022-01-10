@@ -29,13 +29,7 @@
     </include>
 
     <!-- Open RViz for visualization of sensor data and visualization markers -->
-    <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find uuv_bruce_teleop)/rviz/bruce_slam.rviz"/>
-
-    <!-- Run Keyborad Teleoperation node -->
-    <include file="$(find uuv_teleop)/launch/uuv_keyboard_teleop.launch">
-        <arg name="uuv_name" value="$(arg uuv_name)"/>
-    </include>
-
+    <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find uuv_bruce_teleop)/rviz/bruce_exploration.rviz"/>
 
     <!--
     You can run this demo as
