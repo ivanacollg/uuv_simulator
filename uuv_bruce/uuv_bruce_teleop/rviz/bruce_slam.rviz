@@ -3,9 +3,8 @@ Panels:
     Help Height: 82
     Name: Displays
     Property Tree Widget:
-      Expanded:
-        - /TF1/Frames1
-      Splitter Ratio: 0.5352941155433655
+      Expanded: ~
+      Splitter Ratio: 0.8264706134796143
     Tree Height: 381
   - Class: rviz/Selection
     Name: Selection
@@ -37,73 +36,79 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
-        rexrov/base_footprint:
+        All Enabled: false
+        base_link:
           Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
+        rexrov/base_footprint:
+          Value: false
         rexrov/base_link:
           Value: true
         rexrov/base_link_ned:
-          Value: true
+          Value: false
         rexrov/base_stabilized:
-          Value: true
+          Value: false
         rexrov/camera_link:
-          Value: true
+          Value: false
         rexrov/camera_link_optical:
-          Value: true
+          Value: false
         rexrov/cameraleft_link:
-          Value: true
+          Value: false
         rexrov/cameraleft_link_optical:
-          Value: true
+          Value: false
         rexrov/cameraright_link:
-          Value: true
+          Value: false
         rexrov/cameraright_link_optical:
-          Value: true
+          Value: false
         rexrov/dvl_link:
-          Value: true
+          Value: false
         rexrov/dvl_sonar0_link:
-          Value: true
+          Value: false
         rexrov/dvl_sonar1_link:
-          Value: true
+          Value: false
         rexrov/dvl_sonar2_link:
-          Value: true
+          Value: false
         rexrov/dvl_sonar3_link:
-          Value: true
+          Value: false
         rexrov/forward_sonarhoriz_link:
-          Value: true
+          Value: false
         rexrov/forward_sonarhoriz_optical_frame:
-          Value: true
+          Value: false
         rexrov/gps_link:
-          Value: true
+          Value: false
         rexrov/imu_link:
-          Value: true
+          Value: false
         rexrov/magnetometer_link:
-          Value: true
+          Value: false
         rexrov/pose_sensor_link_default:
-          Value: true
+          Value: false
         rexrov/pressure_link:
-          Value: true
+          Value: false
         rexrov/rpt_link:
-          Value: true
+          Value: false
         rexrov/thruster_0:
-          Value: true
+          Value: false
         rexrov/thruster_1:
-          Value: true
+          Value: false
         rexrov/thruster_2:
-          Value: true
+          Value: false
         rexrov/thruster_3:
-          Value: true
+          Value: false
         rexrov/thruster_4:
-          Value: true
+          Value: false
         rexrov/thruster_5:
-          Value: true
+          Value: false
         rexrov/thruster_6:
-          Value: true
+          Value: false
         rexrov/thruster_7:
-          Value: true
+          Value: false
         world:
           Value: true
         world_ned:
-          Value: true
+          Value: false
       Marker Scale: 1
       Name: TF
       Show Arrows: true
@@ -111,6 +116,10 @@ Visualization Manager:
       Show Names: true
       Tree:
         world:
+          map:
+            odom:
+              base_link:
+                {}
           rexrov/base_footprint:
             rexrov/base_stabilized:
               rexrov/base_link:
@@ -190,195 +199,59 @@ Visualization Manager:
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
-      Enabled: true
+      Enabled: false
       Links:
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        rexrov/base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/camera_link_optical:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/cameraleft_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/cameraleft_link_optical:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/cameraright_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/cameraright_link_optical:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/dvl_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/dvl_sonar0_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/dvl_sonar1_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/dvl_sonar2_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/dvl_sonar3_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/forward_sonarhoriz_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/forward_sonarhoriz_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rexrov/gps_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rexrov/imu_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rexrov/magnetometer_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/pose_sensor_link_default:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rexrov/pressure_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/rpt_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/thruster_0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/thruster_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/thruster_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/thruster_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/thruster_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/thruster_5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/thruster_6:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rexrov/thruster_7:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Name: RobotModel
       Robot Description: /rexrov/robot_description
       TF Prefix: ""
       Update Interval: 0
-      Value: true
+      Value: false
       Visual Enabled: true
     - Alpha: 0.5
       Buffer Length: 1
       Class: rviz/Range
       Color: 255; 255; 255
-      Enabled: true
+      Enabled: false
       Name: DVL - Sonar 0
       Queue Size: 100
       Topic: /rexrov/dvl_sonar0
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 0.5
       Buffer Length: 1
       Class: rviz/Range
       Color: 255; 255; 255
-      Enabled: true
+      Enabled: false
       Name: DVL - Sonar 1
       Queue Size: 100
       Topic: /rexrov/dvl_sonar1
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 0.5
       Buffer Length: 1
       Class: rviz/Range
       Color: 255; 255; 255
-      Enabled: true
+      Enabled: false
       Name: DVL - Sonar 2
       Queue Size: 100
       Topic: /rexrov/dvl_sonar2
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 0.5
       Buffer Length: 1
       Class: rviz/Range
       Color: 255; 255; 255
-      Enabled: true
+      Enabled: false
       Name: DVL - Sonar 3
       Queue Size: 100
       Topic: /rexrov/dvl_sonar3
       Unreliable: false
-      Value: true
+      Value: false
     - Class: rviz/Image
       Enabled: true
       Image Topic: /rexrov/forward_sonar_horiz/raw_sonar
@@ -408,7 +281,7 @@ Visualization Manager:
           Scale: 1
           Value: true
         Value: true
-      Enabled: true
+      Enabled: false
       Keep: 100
       Name: Slam Odometry
       Position Tolerance: 1
@@ -424,7 +297,7 @@ Visualization Manager:
         Value: Arrow
       Topic: /bruce/slam/slam/odom
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 1
       Axes Length: 1
       Axes Radius: 0.10000000149011612
@@ -446,11 +319,11 @@ Visualization Manager:
           Value: true
         Value: true
       Enabled: true
-      Head Length: 0.30000001192092896
-      Head Radius: 0.10000000149011612
+      Head Length: 0.5
+      Head Radius: 0.800000011920929
       Name: PoseWithCovariance
       Shaft Length: 1
-      Shaft Radius: 0.05000000074505806
+      Shaft Radius: 0.30000001192092896
       Shape: Arrow
       Topic: /bruce/slam/slam/pose
       Unreliable: false
@@ -486,8 +359,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 5.016161594539881e-5
-        Min Value: -5.9963724197587e-5
+        Max Value: 7.4453950219322e-5
+        Min Value: -8.159120625350624e-5
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -544,7 +417,7 @@ Visualization Manager:
       Marker Topic: /bruce/slam/slam/constraint
       Name: Slam Constraint
       Namespaces:
-        {}
+        constraints: true
       Queue Size: 100
       Value: true
     - Alpha: 0.699999988079071
@@ -569,7 +442,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: Intensity
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Min Color: 0; 0; 0
@@ -584,7 +457,7 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Angle Tolerance: 0.10000000149011612
       Class: rviz/Odometry
       Covariance:
@@ -602,7 +475,7 @@ Visualization Manager:
           Scale: 1
           Value: true
         Value: true
-      Enabled: true
+      Enabled: false
       Keep: 100
       Name: Localization Odometry
       Position Tolerance: 0.10000000149011612
@@ -618,7 +491,7 @@ Visualization Manager:
         Value: Arrow
       Topic: /bruce/slam/localization/odom
       Unreliable: false
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -647,7 +520,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 111.25304412841797
+      Distance: 99.10767364501953
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -662,10 +535,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.3253967761993408
+      Pitch: 1.405396819114685
       Target Frame: rexrov/base_link
       Value: Orbit (rviz)
-      Yaw: 3.7385776042938232
+      Yaw: 3.828578233718872
     Saved: ~
 Window Geometry:
   Displays:

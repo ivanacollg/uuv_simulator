@@ -54,17 +54,23 @@ Visualization Manager:
       Reference Frame: <Fixed Frame>
       Value: true
     - Class: rviz/Axes
-      Enabled: true
+      Enabled: false
       Length: 5
       Name: Axes
       Radius: 1
       Reference Frame: <Fixed Frame>
-      Value: true
+      Value: false
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        base_link:
+          Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
         rexrov/base_footprint:
           Value: true
         rexrov/base_link:
@@ -138,6 +144,10 @@ Visualization Manager:
       Show Names: true
       Tree:
         world:
+          map:
+            odom:
+              base_link:
+                {}
           rexrov/base_footprint:
             rexrov/base_stabilized:
               rexrov/base_link:
@@ -199,20 +209,20 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0
-        Min Value: 0
+        Max Value: 7.327536877710372e-5
+        Min Value: -7.924744568299502e-5
         Value: true
       Axis: Z
       Channel Name: i
       Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
+      Color: 114; 159; 207
+      Color Transformer: AxisColor
       Decay Time: 0
       Enabled: true
       Invert Rainbow: true
       Max Color: 255; 255; 255
       Min Color: 0; 0; 0
-      Name: Point Cloud
+      Name: SLAM Cloud
       Position Transformer: XYZ
       Queue Size: 10
       Selectable: true
@@ -236,7 +246,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: Intensity
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Min Color: 0; 0; 0
@@ -251,7 +261,7 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Alpha: 1
       Axes Length: 3
       Axes Radius: 0.5
@@ -298,45 +308,45 @@ Visualization Manager:
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
-      Enabled: true
+      Enabled: false
       Name: Intensity Map
       Topic: /bruce/slam/mapping/intensity
       Unreliable: false
       Use Timestamp: false
-      Value: true
+      Value: false
     - Alpha: 1
       Class: rviz/Map
       Color Scheme: RdBu_r
       Draw Behind: true
-      Enabled: true
+      Enabled: false
       Name: Occupancy Map
       Topic: /bruce/slam/mapping/occupancy
       Unreliable: false
       Use Timestamp: false
-      Value: true
+      Value: false
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /bruce/slam/slam/constraint
       Name: Constraints
       Namespaces:
-        {}
+        constraints: true
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
-      Enabled: true
+      Enabled: false
       Marker Topic: /bruce/exploration/server/query_result
       Name: Query Result
       Namespaces:
         {}
       Queue Size: 100
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Class: grid_map_rviz_plugin/GridMap
       Color: 200; 200; 200
       Color Layer: occupancy
       Color Transformer: IntensityLayer
-      Enabled: true
+      Enabled: false
       Height Layer: elevation
       Height Transformer: Flat
       History Length: 1
@@ -350,13 +360,13 @@ Visualization Manager:
       Topic: /bruce/exploration/server/virtual_map
       Unreliable: false
       Use Rainbow: true
-      Value: true
+      Value: false
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /bruce/exploration/server/bbox
       Name: Bounding Box
       Namespaces:
-        {}
+        "": true
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -365,7 +375,7 @@ Visualization Manager:
       Color: 200; 200; 200
       Color Layer: obstacle
       Color Transformer: IntensityLayer
-      Enabled: true
+      Enabled: false
       Height Layer: elevation
       Height Transformer: Flat
       History Length: 1
@@ -379,12 +389,12 @@ Visualization Manager:
       Topic: /bruce/exploration/server/cost_map
       Unreliable: false
       Use Rainbow: true
-      Value: true
+      Value: false
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
       Color: 25; 255; 0
-      Enabled: true
+      Enabled: false
       Head Diameter: 0.30000001192092896
       Head Length: 0.20000000298023224
       Length: 0.30000001192092896
@@ -402,12 +412,12 @@ Visualization Manager:
       Shaft Length: 0.10000000149011612
       Topic: /move_base/TebLocalPlannerROS/local_plan
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
       Color: 255; 0; 255
-      Enabled: true
+      Enabled: false
       Head Diameter: 0.30000001192092896
       Head Length: 0.20000000298023224
       Length: 0.30000001192092896
@@ -425,27 +435,27 @@ Visualization Manager:
       Shaft Length: 0.10000000149011612
       Topic: /move_base/TebLocalPlannerROS/global_plan
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 0.699999988079071
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
-      Enabled: true
+      Enabled: false
       Name: Global Costmap
       Topic: /move_base/global_costmap/costmap
       Unreliable: false
       Use Timestamp: false
-      Value: true
+      Value: false
     - Alpha: 0.699999988079071
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
-      Enabled: true
+      Enabled: false
       Name: Local Costmap
       Topic: /move_base/local_costmap/costmap
       Unreliable: false
       Use Timestamp: false
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -455,7 +465,7 @@ Visualization Manager:
       Axis: Z
       Channel Name: intensity
       Class: rviz/PointCloud2
-      Color: 255; 0; 0
+      Color: 238; 238; 236
       Color Transformer: FlatColor
       Decay Time: 0
       Enabled: true
@@ -487,13 +497,13 @@ Visualization Manager:
       Zoom: 20
     - Class: rviz/InteractiveMarkers
       Enable Transparency: true
-      Enabled: true
+      Enabled: false
       Name: InteractiveMarkers
       Show Axes: false
       Show Descriptions: true
       Show Visual Aids: false
       Update Topic: /satellite_marker_server/update
-      Value: true
+      Value: false
     - Class: rviz/Image
       Enabled: false
       Image Topic: /bruce/slam/feature_extraction/feature_img
@@ -533,7 +543,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 3.140808343887329
+      Angle: 3.090808153152466
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -543,7 +553,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 5.39141321182251
+      Scale: 6.819404602050781
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz)
       X: 9.820765495300293
