@@ -9,7 +9,7 @@
         <pose>90 100 -50 0 0 0</pose>
         <geometry>
           <box>
-            <size>300 300 .1</size>
+            <size>1000 1000 .1</size>
           </box>
         </geometry>
         <material>
