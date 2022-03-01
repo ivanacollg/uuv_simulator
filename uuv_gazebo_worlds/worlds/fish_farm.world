@@ -69,7 +69,7 @@
         <velocity>
           <mean>0</mean>
           <min>0</min>
-          <max>5</max>
+          <max>0</max>
           <mu>0.0</mu>
           <noiseAmp>0.0</noiseAmp>
         </velocity>
