@@ -17,16 +17,18 @@
         <arg name="mode" default="sonar"/>
     </include>
 
+    <!--remap from="/rexrov/cmd_vel" to="/cmd_vel"/-->
     <!-- Start the controller -->
     <include file="$(find uuv_tutorial_dp_controller)/launch/start_tutorial_dp_controller.launch">
         <arg name="uuv_name" value="rexrov"/>
         <arg name="model_name" value="rexrov"/>
     </include>
 
+
     <!-- Start the recording node  -->
-    <include file="$(find uuv_gazebo)/launch/controller_demos/record_demo.launch">
+    <!--include file="$(find uuv_gazebo)/launch/controller_demos/record_demo.launch">
       <arg name="record" value="$(arg record)"/>
-    </include>
+    </include-->
 
     <!-- Open RViz for visualization of sensor data and visualization markers -->
     <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find uuv_bruce_teleop)/rviz/bruce_exploration.rviz"/>

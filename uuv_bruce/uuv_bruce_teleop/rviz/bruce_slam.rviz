@@ -3,7 +3,10 @@ Panels:
     Help Height: 82
     Name: Displays
     Property Tree Widget:
-      Expanded: ~
+      Expanded:
+        - /TF1
+        - /TF1/Frames1
+        - /TF1/Tree1
       Splitter Ratio: 0.8264706134796143
     Tree Height: 381
   - Class: rviz/Selection
@@ -106,7 +109,7 @@ Visualization Manager:
         rexrov/thruster_7:
           Value: false
         world:
-          Value: true
+          Value: false
         world_ned:
           Value: false
       Marker Scale: 1
@@ -212,46 +215,6 @@ Visualization Manager:
       Update Interval: 0
       Value: false
       Visual Enabled: true
-    - Alpha: 0.5
-      Buffer Length: 1
-      Class: rviz/Range
-      Color: 255; 255; 255
-      Enabled: false
-      Name: DVL - Sonar 0
-      Queue Size: 100
-      Topic: /rexrov/dvl_sonar0
-      Unreliable: false
-      Value: false
-    - Alpha: 0.5
-      Buffer Length: 1
-      Class: rviz/Range
-      Color: 255; 255; 255
-      Enabled: false
-      Name: DVL - Sonar 1
-      Queue Size: 100
-      Topic: /rexrov/dvl_sonar1
-      Unreliable: false
-      Value: false
-    - Alpha: 0.5
-      Buffer Length: 1
-      Class: rviz/Range
-      Color: 255; 255; 255
-      Enabled: false
-      Name: DVL - Sonar 2
-      Queue Size: 100
-      Topic: /rexrov/dvl_sonar2
-      Unreliable: false
-      Value: false
-    - Alpha: 0.5
-      Buffer Length: 1
-      Class: rviz/Range
-      Color: 255; 255; 255
-      Enabled: false
-      Name: DVL - Sonar 3
-      Queue Size: 100
-      Topic: /rexrov/dvl_sonar3
-      Unreliable: false
-      Value: false
     - Class: rviz/Image
       Enabled: true
       Image Topic: /rexrov/forward_sonar_horiz/raw_sonar
@@ -318,7 +281,7 @@ Visualization Manager:
           Scale: 1
           Value: true
         Value: true
-      Enabled: true
+      Enabled: false
       Head Length: 0.5
       Head Radius: 0.800000011920929
       Name: PoseWithCovariance
@@ -327,7 +290,7 @@ Visualization Manager:
       Shape: Arrow
       Topic: /bruce/slam/slam/pose
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -340,7 +303,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: FlatColor
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: true
       Max Color: 255; 255; 255
       Min Color: 0; 0; 0
@@ -355,12 +318,12 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 7.4453950219322e-5
-        Min Value: -8.159120625350624e-5
+        Max Value: 5.8112131227971986e-5
+        Min Value: -6.594291335204616e-5
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -368,7 +331,7 @@ Visualization Manager:
       Color: 115; 210; 22
       Color Transformer: AxisColor
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Min Color: 0; 0; 0
@@ -383,7 +346,7 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -396,7 +359,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: FlatColor
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Min Color: 0; 0; 0
@@ -411,25 +374,25 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Class: rviz/Marker
-      Enabled: true
+      Enabled: false
       Marker Topic: /bruce/slam/slam/constraint
       Name: Slam Constraint
       Namespaces:
-        constraints: true
+        {}
       Queue Size: 100
-      Value: true
+      Value: false
     - Alpha: 0.699999988079071
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
-      Enabled: true
+      Enabled: false
       Name: Occupancy Map
       Topic: /bruce/slam/mapping/occupancy
       Unreliable: false
       Use Timestamp: false
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -492,6 +455,29 @@ Visualization Manager:
       Topic: /bruce/slam/localization/odom
       Unreliable: false
       Value: false
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /move_base/TebLocalPlannerROS/local_plan
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -520,7 +506,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 99.10767364501953
+      Distance: 12.063032150268555
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
