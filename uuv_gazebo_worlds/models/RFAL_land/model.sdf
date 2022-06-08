@@ -28,7 +28,7 @@
           </box>
         </geometry>
       </collision>
-
+     <!--
       <visual name="platform">
           <cast_shadows>false</cast_shadows>
           <pose>-4 0 -2.5960578 0 0 0</pose>
@@ -45,9 +45,9 @@
               <mesh><uri>model://RFAL_land/meshes/testing_world_rev_2.stl</uri><scale>1 1 1</scale></mesh>
           </geometry>
       </collision>
-  
-      <!--
-        <visual name="platform">
+    -->
+    
+      <visual name="platform">
           <cast_shadows>false</cast_shadows>
           <pose>0 0 -2.5960578 0 0 0</pose>
           <geometry>
@@ -63,7 +63,7 @@
               <mesh><uri>model://RFAL_land/meshes/training_world_one.stl</uri><scale>1 1 1</scale></mesh>
           </geometry>
       </collision>
-    -->    
+    
 
     <!--
        <visual name="platform">
@@ -82,10 +82,10 @@
               <mesh><uri>model://RFAL_land/meshes/training_world_two.stl</uri><scale>1 1 1</scale></mesh>
           </geometry>
       </collision>
-
-        -->
-      <!--
-
+    -->
+        
+     
+    <!--
       <visual name="hulls">
           <cast_shadows>false</cast_shadows>
           <pose>0 0 -5 0 0 0</pose>
@@ -170,7 +170,7 @@
               <mesh><uri>model://RFAL_land/meshes/RFAL_land_walls.stl</uri><scale>.01 .01 .01</scale></mesh>
           </geometry>
       </collision>
-      -->
+    -->
       
       
 
