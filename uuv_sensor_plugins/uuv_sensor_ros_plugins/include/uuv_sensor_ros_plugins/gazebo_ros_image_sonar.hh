@@ -49,7 +49,6 @@
 #include <gazebo_plugins/gazebo_ros_camera_utils.h>
 
 #include <cv_bridge/cv_bridge.h>
-#include <opencv2/opencv.hpp>
 
 #include <boost/bind.hpp>
 

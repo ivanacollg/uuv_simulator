@@ -19,7 +19,8 @@ find_package(catkin REQUIRED COMPONENTS
   message_filters
   tf2_ros
   tf2
-  laser_geometry)
+  laser_geometry
+  cv_bridge)
 
 find_package(Eigen3 REQUIRED)
 find_package(OGRE REQUIRED)
@@ -80,6 +81,7 @@ catkin_package(
     tf2
     image_transport
     laser_geometry
+    cv_bridge
 )
 
 ###########
@@ -102,6 +104,7 @@ include_directories(
 
 link_directories(
   ${GAZEBO_LIBRARY_DIRS}
+  ${OpenCV_LIBRARY_DIRS}
 )
 
 protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS ${msgs})
@@ -217,7 +220,7 @@ list(APPEND UUV_SENSOR_ROS_PLUGINS_LIST uuv_gazebo_ros_camera_plugin)
 ###############################################################################
 
 add_library(image_sonar_ros_plugin src/gazebo_ros_image_sonar.cpp)
-target_link_libraries(image_sonar_ros_plugin ${OGRE_LIBRARIES} ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+target_link_libraries(image_sonar_ros_plugin ${OGRE_LIBRARIES} ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${GAZEBO_LIBRARIES})
 add_dependencies(image_sonar_ros_plugin ${catkin_EXPORTED_TARGETS})
 list(APPEND UUV_SENSOR_ROS_PLUGINS_LIST image_sonar_ros_plugin)
 
