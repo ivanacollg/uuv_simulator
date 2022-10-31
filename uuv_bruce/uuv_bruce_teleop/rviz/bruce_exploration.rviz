@@ -4,11 +4,13 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
+        - /TF1
+        - /TF1/Frames1
         - /SLAM1/Mapping Node1
         - /SLAM1/Feature Node1
         - /Sat Image1/GridMap1
       Splitter Ratio: 0.5432780981063843
-    Tree Height: 392
+    Tree Height: 842
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -49,7 +51,7 @@ Visualization Manager:
         rexrov/base_footprint:
           Value: false
         rexrov/base_link:
-          Value: true
+          Value: false
         rexrov/base_link_ned:
           Value: false
         rexrov/base_stabilized:
@@ -67,7 +69,7 @@ Visualization Manager:
         rexrov/cameraright_link_optical:
           Value: false
         rexrov/dvl_link:
-          Value: false
+          Value: true
         rexrov/dvl_sonar0_link:
           Value: false
         rexrov/dvl_sonar1_link:
@@ -83,7 +85,7 @@ Visualization Manager:
         rexrov/gps_link:
           Value: false
         rexrov/imu_link:
-          Value: false
+          Value: true
         rexrov/magnetometer_link:
           Value: false
         rexrov/pose_sensor_link_default:
@@ -112,7 +114,7 @@ Visualization Manager:
           Value: true
         world_ned:
           Value: false
-      Marker Scale: 1
+      Marker Scale: 3
       Name: TF
       Show Arrows: true
       Show Axes: true
@@ -238,7 +240,7 @@ Visualization Manager:
           Transport Hint: raw
           Unreliable: false
           Value: true
-      Enabled: true
+      Enabled: false
       Name: Sensors
     - Class: rviz/Group
       Displays:
@@ -337,8 +339,8 @@ Visualization Manager:
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
-            Max Value: 8.331961726071313e-5
-            Min Value: -7.948158599901944e-5
+            Max Value: 6.063345426809974e-5
+            Min Value: -5.63907487958204e-5
             Value: true
           Axis: Z
           Channel Name: intensity
@@ -346,7 +348,7 @@ Visualization Manager:
           Color: 115; 210; 22
           Color Transformer: AxisColor
           Decay Time: 0
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Min Color: 0; 0; 0
@@ -361,13 +363,13 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
+          Value: true
         - Class: rviz/Marker
           Enabled: true
           Marker Topic: /bruce/slam/slam/constraint
           Name: Slam Constraint
           Namespaces:
-            constraints: true
+            {}
           Queue Size: 100
           Value: true
         - Class: rviz/Group
@@ -376,12 +378,12 @@ Visualization Manager:
               Class: rviz/Map
               Color Scheme: map
               Draw Behind: false
-              Enabled: false
+              Enabled: true
               Name: Occupancy Map
               Topic: /bruce/slam/mapping/occupancy
               Unreliable: false
               Use Timestamp: false
-              Value: false
+              Value: true
           Enabled: true
           Name: Mapping Node
         - Class: rviz/Group
@@ -417,12 +419,12 @@ Visualization Manager:
           Enabled: true
           Name: Feature Node
         - Class: rviz/Axes
-          Enabled: true
+          Enabled: false
           Length: 3
           Name: Axes
           Radius: 0.699999988079071
           Reference Frame: base_link
-          Value: true
+          Value: false
       Enabled: true
       Name: SLAM
     - Class: rviz/Group
@@ -555,12 +557,12 @@ Visualization Manager:
           Use Timestamp: false
           Value: false
         - Class: rviz/Axes
-          Enabled: true
+          Enabled: false
           Length: 1
           Name: Axes
           Radius: 0.10000000149011612
           Reference Frame: rexrov/base_link
-          Value: true
+          Value: false
         - Alpha: 1
           Class: rviz/Polygon
           Color: 239; 41; 41
@@ -569,7 +571,7 @@ Visualization Manager:
           Topic: /move_base/local_costmap/footprint
           Unreliable: false
           Value: true
-      Enabled: true
+      Enabled: false
       Name: Move Base
     - Class: rviz/Group
       Displays:
@@ -606,8 +608,31 @@ Visualization Manager:
           Unreliable: false
           Use Rainbow: true
           Value: true
-      Enabled: true
+      Enabled: false
       Name: Sat Image
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /bruce/exploration/server/query_path
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -636,35 +661,35 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 185.44198608398438
+      Distance: 0.03034455142915249
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -3.7509653568267822
-        Y: 27.592491149902344
-        Z: 12.879834175109863
+        X: -13.154581069946289
+        Y: 4.706364631652832
+        Z: 7.776852607727051
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.5097966194152832
+      Pitch: 0.5897976160049438
       Target Frame: rexrov/base_link
       Value: Orbit (rviz)
-      Yaw: 1.5704212188720703
+      Yaw: 2.900421142578125
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1023
+  Height: 1143
   Hide Left Dock: false
   Hide Right Dock: true
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000022100000361fc020000000efb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d00000217000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d006500720061000000034e000000160000000000000000fb0000000c00430061006d0065007200610000000353000000160000000000000000fb000000160053006f006e0061007200200049006d006100670065010000025a000001440000001600fffffffb0000001a0064006500730069007300740065006b005f00730061006700610000000000ffffffff0000000000000000fb0000000c0072006500780072006f00760000000000ffffffff0000000000000000fb0000000a0049006d00610067006500000002ca000000d40000001600ffffff000000010000010f00000363fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d00000363000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004f30000003efc0100000002fb0000000800540069006d00650100000000000004f3000002eb00fffffffb0000000800540069006d00650100000000000004500000000000000000000002cc0000036100000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd000000040000000000000221000003d9fc020000000efb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000003d9000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d006500720061000000034e000000160000000000000000fb0000000c00430061006d0065007200610000000353000000160000000000000000fb000000160053006f006e0061007200200049006d00610067006500000002a6000001700000001600fffffffb0000001a0064006500730069007300740065006b005f00730061006700610000000000ffffffff0000000000000000fb0000000c0072006500780072006f00760000000000ffffffff0000000000000000fb0000000a0049006d00610067006500000002ca000000d40000001600ffffff000000010000010f00000363fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d00000363000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004f30000003efc0100000002fb0000000800540069006d00650100000000000004f3000002eb00fffffffb0000000800540069006d00650100000000000004500000000000000000000002cc000003d900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Sonar Image:
@@ -676,5 +701,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1267
-  X: 67
+  X: 653
   Y: 27
