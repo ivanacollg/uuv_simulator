@@ -1,0 +1,49 @@
+<launch>
+    <!-- If you want to generate a ROS bag with the recorded simulated data, set this flag to true -->
+    <arg name="record" default="false"/>
+    <arg name="world" default="penns_landing"/>
+    <arg name="uuv_name" default="rexrov"/>
+
+
+    <!-- Start the a underwater world simulation scenario -->    
+    <include file="$(find uuv_gazebo_worlds)/launch/$(arg world).launch"/>
+
+    <!-- Add the RexROV vehicle to the simulation (namespace: rexrov) -->
+    <include file="$(find uuv_bruce_teleop)/launch/rexrov_sonar.launch">
+        <arg name="x" default="250"/>
+        <arg name="y" default="0"/>
+        <arg name="z" default="-1"/>
+        <arg name="yaw" default="0"/>
+        <arg name="mode" default="sonar"/>
+    </include>
+
+    <!-- Start the controller -->
+    <include file="$(find uuv_tutorial_dp_controller)/launch/start_tutorial_dp_controller.launch">
+        <arg name="uuv_name" value="rexrov"/>
+        <arg name="model_name" value="rexrov"/>
+    </include>
+
+    <!-- Start the recording node  -->
+    <include file="$(find uuv_gazebo)/launch/controller_demos/record_demo.launch">
+      <arg name="record" value="$(arg record)"/>
+    </include>
+
+    <!-- Open RViz for visualization of sensor data and visualization markers -->
+    <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find uuv_bruce_teleop)/rviz/bruce_slam.rviz"/>
+
+    <!-- Run Keyborad Teleoperation node -->
+    <include file="$(find uuv_teleop)/launch/uuv_teleop.launch">
+        <arg name="uuv_name" value="$(arg uuv_name)"/>
+    </include>
+
+
+    <!--
+    You can run this demo as
+
+    >> roslaunch uuv_tutorial_dp_controller start_tutorial_dp_controller_demo.launch
+
+    and you can then send some waypoints to the vehicle to see it working
+
+    >> roslaunch uuv_control_utils send_waypoints_file.launch uuv_name:=rexrov
+    -->
+</launch>

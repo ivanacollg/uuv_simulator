@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+
+  <model name="plane_crash">
+    <static>true</static>
+    <link name="link">
+      <visual name="ground">
+        <cast_shadows>false</cast_shadows>
+        <pose>0 0 -10 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>100 100 .1</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/sand.material</uri>
+            <name>UUVSimulator/SandAndStones</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name="ground">
+        <pose>0 0 -10 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>100 100 .1</size>
+          </box>
+        </geometry>
+      </collision>
+
+    
+      <visual name="plane">
+          <cast_shadows>false</cast_shadows>
+          <pose>0 0 -8 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://plane_crash/meshes/B24.stl</uri><scale>.1 .1 .1 </scale></mesh>
+          </geometry>
+      </visual>
+
+      <collision name="plane">
+          <pose>0 0 -8 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://plane_crash/meshes/B24.stl</uri><scale> .1 .1 .1 </scale></mesh>
+          </geometry>
+      </collision>
+
+
+
+
+
+
+    </link>
+  </model>
+</sdf>
