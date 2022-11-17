@@ -49,129 +49,89 @@
     
       <visual name="platform">
           <cast_shadows>false</cast_shadows>
-          <pose>0 0 -2.5960578 0 0 0</pose>
+          <pose>0 0 -5 0 0 0</pose>
           <geometry>
-              <mesh><uri>model://RFAL_land/meshes/training_world_one.stl</uri><scale>1 1 1 </scale></mesh>
+              <mesh><uri>model://RFAL_land/meshes/training_world_set_origin.stl</uri><scale>1 1 1 </scale></mesh>
           </geometry>
 
       </visual>
 
-    
       <collision name="platform">
-          <pose>0 0 -2.5960578 0 0 0</pose>
+          <pose>0 0 -5 0 0 0</pose>
           <geometry>
-              <mesh><uri>model://RFAL_land/meshes/training_world_one.stl</uri><scale>1 1 1</scale></mesh>
+              <mesh><uri>model://RFAL_land/meshes/training_world_set_origin.stl</uri><scale>1 1 1</scale></mesh>
           </geometry>
       </collision>
+
+      <visual name="boat_1">
+          <cast_shadows>false</cast_shadows>
+          <pose>-12.5 -9 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://RFAL_land/meshes/boat.stl</uri><scale>1 1 1 </scale></mesh>
+          </geometry>
+
+      </visual>
+
+      <collision name="boat_1">
+          <pose>-12.5 -9 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://RFAL_land/meshes/boat.stl</uri><scale>1 1 1</scale></mesh>
+          </geometry>
+      </collision>
+
+      <visual name="boat_2">
+          <cast_shadows>false</cast_shadows>
+          <pose>16 5 0 0 0 1.5708</pose>
+          <geometry>
+              <mesh><uri>model://RFAL_land/meshes/boat.stl</uri><scale>1 1 1 </scale></mesh>
+          </geometry>
+
+      </visual>
+
+      <collision name="boat_2">
+          <pose>16 5 0 0 0 1.5708</pose>
+          <geometry>
+              <mesh><uri>model://RFAL_land/meshes/boat.stl</uri><scale>1 1 1</scale></mesh>
+          </geometry>
+      </collision>
+
+      <visual name="boat_3">
+          <cast_shadows>false</cast_shadows>
+          <pose>-15 15 0 0 0 -1.13</pose>
+          <geometry>
+              <mesh><uri>model://RFAL_land/meshes/boat.stl</uri><scale>1 1 1 </scale></mesh>
+          </geometry>
+
+      </visual>
+
+      <collision name="boat_3">
+          <pose>-15 15 0 0 0 -1.13</pose>
+          <geometry>
+              <mesh><uri>model://RFAL_land/meshes/boat.stl</uri><scale>1 1 1</scale></mesh>
+          </geometry>
+      </collision>
+
+      <visual name="boat_4">
+          <cast_shadows>false</cast_shadows>
+          <pose>-28 10 0 0 0 -1.13</pose>
+          <geometry>
+              <mesh><uri>model://RFAL_land/meshes/boat.stl</uri><scale>1 1 1 </scale></mesh>
+          </geometry>
+
+      </visual>
+
+      <collision name="boat_4">
+          <pose>-28 10 0 0 0 -1.13</pose>
+          <geometry>
+              <mesh><uri>model://RFAL_land/meshes/boat.stl</uri><scale>1 1 1</scale></mesh>
+          </geometry>
+      </collision>
+
+
+
     
 
-    <!--
-       <visual name="platform">
-          <cast_shadows>false</cast_shadows>
-          <pose>0 -18 0 0 0 0</pose>
-          <geometry>
-              <mesh><uri>model://RFAL_land/meshes/training_world_two.stl</uri><scale>1 1 1 </scale></mesh>
-          </geometry>
-
-      </visual>
-
     
-      <collision name="platform">
-          <pose>0 -18 0 0 0 0</pose>
-          <geometry>
-              <mesh><uri>model://RFAL_land/meshes/training_world_two.stl</uri><scale>1 1 1</scale></mesh>
-          </geometry>
-      </collision>
-    -->
-        
-     
-    <!--
-      <visual name="hulls">
-          <cast_shadows>false</cast_shadows>
-          <pose>0 0 -5 0 0 0</pose>
-          <geometry>
-              <mesh><uri>model://RFAL_land/meshes/RFAL_land_hulls.stl</uri><scale>.01 .01 .01</scale></mesh>
-          </geometry>
-          <material>
-              <ambient>0 0 0 1</ambient>
-              <diffuse>0 0 0 1</diffuse>
-              <specular>0 0 0 0</specular>
-              <emissive>0 1 0 1</emissive>
-          </material>
-      </visual>
-
-      <collision name="hulls">
-          <pose>0 0 -5 0 0 0</pose>
-          <geometry>
-              <mesh><uri>model://RFAL_land/meshes/RFAL_land_hulls.stl</uri><scale>.01 .01 .01</scale></mesh>
-          </geometry>
-      </collision>
-      
-
-      <visual name="square_piles">
-          <cast_shadows>false</cast_shadows>
-          <pose>0 0 -5 0 0 0</pose>
-          <geometry>
-              <mesh><uri>model://RFAL_land/meshes/RFAL_land_square_piles.stl</uri><scale>.01 .01 .01</scale></mesh>
-          </geometry>
-          <material>
-              <ambient>0 0 0 1</ambient>
-              <diffuse>0 0 0 1</diffuse>
-              <specular>0 0 0 0</specular>
-              <emissive>1 0 0 1</emissive>
-          </material>
-      </visual>
-
-      <collision name="square_piles">
-          <pose>0 0 -5 0 0 0</pose>
-          <geometry>
-              <mesh><uri>model://RFAL_land/meshes/RFAL_land_square_piles.stl</uri><scale>.01 .01 .01</scale></mesh>
-          </geometry>
-      </collision>
-
-      <visual name="circle_piles">
-          <cast_shadows>false</cast_shadows>
-          <pose>0 0 -5 0 0 0</pose>
-          <geometry>
-              <mesh><uri>model://RFAL_land/meshes/RFAL_land_circle_piles.stl</uri><scale>.01 .01 .01</scale></mesh>
-          </geometry>
-          <material>
-              <ambient>0 0 0 1</ambient>
-              <diffuse>0 0 0 1</diffuse>
-              <specular>0 0 0 0</specular>
-              <emissive>0 0 1 1</emissive>
-          </material>
-      </visual>
-
-      <collision name="cirlce_piles">
-          <pose>0 0 -5 0 0 0</pose>
-          <geometry>
-              <mesh><uri>model://RFAL_land/meshes/RFAL_land_circle_piles.stl</uri><scale>.01 .01 .01</scale></mesh>
-          </geometry>
-      </collision>
-
-      <visual name="walls">
-          <cast_shadows>false</cast_shadows>
-          <pose>0 0 -5 0 0 0</pose>
-          <geometry>
-              <mesh><uri>model://RFAL_land/meshes/RFAL_land_walls.stl</uri><scale>.01 .01 .01</scale></mesh>
-          </geometry>
-          <material>
-              <ambient>0 0 0 1</ambient>
-              <diffuse>0 0 0 1</diffuse>
-              <specular>0 0 0 0</specular>
-              <emissive>1 1 0 1</emissive>
-          </material>
-      </visual>
-
-      <collision name="walls">
-          <pose>0 0 -5 0 0 0</pose>
-          <geometry>
-              <mesh><uri>model://RFAL_land/meshes/RFAL_land_walls.stl</uri><scale>.01 .01 .01</scale></mesh>
-          </geometry>
-      </collision>
-    -->
-      
       
 
     </link>
