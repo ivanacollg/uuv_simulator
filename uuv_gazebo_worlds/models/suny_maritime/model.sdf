@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+
+  <model name="suny_maritime">
+    <static>true</static>
+    <link name="link">
+      <visual name="ground">
+        <cast_shadows>false</cast_shadows>
+        <pose>0 0 -5 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>100 100 .1</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/sand.material</uri>
+            <name>UUVSimulator/SandAndStones</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name="ground">
+        <pose>0 0 -5 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>100 100 .1</size>
+          </box>
+        </geometry>
+      </collision>
+
+    
+      <visual name="platform">
+          <cast_shadows>false</cast_shadows>
+          <pose>0 20 0 0 0 -1.07</pose>
+          <geometry>
+              <mesh><uri>model://suny_maritime/meshes/suny_maritime.stl</uri><scale>1 1 1 </scale></mesh>
+          </geometry>
+      </visual>
+
+      <collision name="platform">
+          <pose>0 20 0 0 0 -1.07</pose>
+          <geometry>
+              <mesh><uri>model://suny_maritime/meshes/suny_maritime.stl</uri><scale>1 1 1 </scale></mesh>
+          </geometry>
+      </collision>
+
+    </link>
+  </model>
+</sdf>
