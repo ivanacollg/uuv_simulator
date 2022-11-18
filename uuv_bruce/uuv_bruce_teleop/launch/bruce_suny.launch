@@ -12,7 +12,7 @@
     <include file="$(find uuv_bruce_teleop)/launch/rexrov_sonar.launch">
         <arg name="x" default="0"/>
         <arg name="y" default="0"/>
-        <arg name="z" default="0"/>
+        <arg name="z" default="-1"/>
         <arg name="yaw" default="0"/>
         <arg name="mode" default="sonar"/>
     </include>
