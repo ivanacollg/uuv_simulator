@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /TF1/Frames1
         - /SLAM1
+        - /SLAM1/Mapping Node1
         - /SLAM1/Feature Node1
         - /Exploration1
         - /Sat Image1/GridMap1
@@ -29,7 +30,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: Slam Trajectory
+    SyncSource: ""
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -124,9 +125,6 @@ Visualization Manager:
       Tree:
         world:
           map:
-            base_link:
-              sonar_link:
-                {}
             base_link_dead_reckoning:
               {}
           rexrov/base_footprint:
@@ -675,7 +673,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 144.46615600585938
+      Distance: 373.2872009277344
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
