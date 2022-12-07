@@ -1,7 +1,7 @@
 <launch>
     <!-- If you want to generate a ROS bag with the recorded simulated data, set this flag to true -->
     <arg name="record" default="false"/>
-    <arg name="world" default="RFAL_land"/>
+    <arg name="world" default="penns_landing"/>
     <arg name="uuv_name" default="rexrov"/>
 
 
@@ -12,7 +12,7 @@
     <include file="$(find uuv_bruce_teleop)/launch/rexrov_sonar.launch">
         <arg name="x" default="0"/>
         <arg name="y" default="0"/>
-        <arg name="z" default="-1"/>
+        <arg name="z" default="-3"/> <!--RFAL land -1 meters, Penns Landing -3 meters-->
         <arg name="yaw" default="0"/>
         <arg name="mode" default="sonar"/>
     </include>
