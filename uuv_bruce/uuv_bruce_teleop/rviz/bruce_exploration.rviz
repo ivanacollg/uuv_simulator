@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /TF1/Frames1
         - /SLAM1
+        - /SLAM1/PoseWithCovariance1
         - /SLAM1/Mapping Node1
         - /SLAM1/Feature Node1
         - /Exploration1
@@ -30,7 +31,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: Sonar Image
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -48,6 +49,8 @@ Visualization Manager:
         base_link_dead_reckoning:
           Value: true
         map:
+          Value: true
+        prior_map:
           Value: true
         rexrov/base_footprint:
           Value: false
@@ -125,7 +128,12 @@ Visualization Manager:
       Tree:
         world:
           map:
+            base_link:
+              sonar_link:
+                {}
             base_link_dead_reckoning:
+              {}
+            prior_map:
               {}
           rexrov/base_footprint:
             rexrov/base_stabilized:
@@ -250,7 +258,7 @@ Visualization Manager:
           Axes Length: 1
           Axes Radius: 0.10000000149011612
           Class: rviz/PoseWithCovariance
-          Color: 239; 41; 41
+          Color: 164; 0; 0
           Covariance:
             Orientation:
               Alpha: 0.5
@@ -266,16 +274,16 @@ Visualization Manager:
               Scale: 1
               Value: true
             Value: true
-          Enabled: false
-          Head Length: 0.5
-          Head Radius: 0.800000011920929
+          Enabled: true
+          Head Length: 1
+          Head Radius: 1.5
           Name: PoseWithCovariance
-          Shaft Length: 1
-          Shaft Radius: 0.30000001192092896
+          Shaft Length: 2.5
+          Shaft Radius: 0.800000011920929
           Shape: Arrow
           Topic: /bruce/slam/slam/pose
           Unreliable: false
-          Value: false
+          Value: true
         - Angle Tolerance: 0.10000000149011612
           Class: rviz/Odometry
           Covariance:
@@ -341,8 +349,8 @@ Visualization Manager:
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
-            Max Value: 6.117065640864894e-5
-            Min Value: -5.6379696616204455e-5
+            Max Value: 5.604270700132474e-5
+            Min Value: -0.00011297625314909965
             Value: true
           Axis: Z
           Channel Name: intensity
@@ -371,7 +379,7 @@ Visualization Manager:
           Marker Topic: /bruce/slam/slam/constraint
           Name: Slam Constraint
           Namespaces:
-            {}
+            constraints: true
           Queue Size: 100
           Value: true
         - Class: rviz/Group
@@ -421,12 +429,12 @@ Visualization Manager:
           Enabled: true
           Name: Feature Node
         - Class: rviz/Axes
-          Enabled: true
+          Enabled: false
           Length: 3
           Name: Axes
           Radius: 0.699999988079071
           Reference Frame: base_link
-          Value: true
+          Value: false
       Enabled: true
       Name: SLAM
     - Class: rviz/Group
@@ -436,7 +444,11 @@ Visualization Manager:
           Marker Topic: /bruce/exploration/server/query_result
           Name: Query Result
           Namespaces:
-            {}
+            best: true
+            frontiers: true
+            paths: true
+            revisitations: true
+            trees: true
           Queue Size: 100
           Value: true
         - Class: rviz/Marker
@@ -673,7 +685,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 373.2872009277344
+      Distance: 70.62698364257812
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
