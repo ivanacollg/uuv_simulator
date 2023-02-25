@@ -12,7 +12,7 @@
     <include file="$(find uuv_bruce_teleop)/launch/rexrov_sonar.launch">
         <arg name="x" default="0"/>
         <arg name="y" default="0"/>
-        <arg name="z" default="-3"/>  <!--RFAL land -1 meters, Penns Landing -3 meters-->
+        <arg name="z" default="-3"/>  <!--RFAL land -1 meters, Penns Landing -1.5 meters-->
         <arg name="yaw" default="0"/>
         <arg name="mode" default="sonar"/>
     </include>

@@ -6,7 +6,6 @@ Panels:
       Expanded:
         - /TF1/Frames1
         - /SLAM1
-        - /SLAM1/PoseWithCovariance1
         - /SLAM1/Mapping Node1
         - /SLAM1/Feature Node1
         - /Exploration1
@@ -49,8 +48,6 @@ Visualization Manager:
         base_link_dead_reckoning:
           Value: true
         map:
-          Value: true
-        prior_map:
           Value: true
         rexrov/base_footprint:
           Value: false
@@ -132,8 +129,6 @@ Visualization Manager:
               sonar_link:
                 {}
             base_link_dead_reckoning:
-              {}
-            prior_map:
               {}
           rexrov/base_footprint:
             rexrov/base_stabilized:
@@ -349,8 +344,8 @@ Visualization Manager:
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
-            Max Value: 5.604270700132474e-5
-            Min Value: -0.00011297625314909965
+            Max Value: 5.668391168001108e-5
+            Min Value: -5.765914829680696e-5
             Value: true
           Axis: Z
           Channel Name: intensity
@@ -394,7 +389,7 @@ Visualization Manager:
               Unreliable: false
               Use Timestamp: false
               Value: true
-          Enabled: false
+          Enabled: true
           Name: Mapping Node
         - Class: rviz/Group
           Displays:
@@ -444,11 +439,7 @@ Visualization Manager:
           Marker Topic: /bruce/exploration/server/query_result
           Name: Query Result
           Namespaces:
-            best: true
-            frontiers: true
-            paths: true
-            revisitations: true
-            trees: true
+            {}
           Queue Size: 100
           Value: true
         - Class: rviz/Marker

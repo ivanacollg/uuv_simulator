@@ -51,7 +51,7 @@
           <cast_shadows>false</cast_shadows>
           <pose>0 0.0 -4.5960578 0 0 0</pose> <!-- -4.5960578 for Big and -2.5960578 else-->
           <geometry>
-              <mesh><uri>model://RFAL_land/meshes/RFALBig.stl</uri><scale>1 1 1 </scale></mesh>
+              <mesh><uri>model://RFAL_land/meshes/RFALBig2.stl</uri><scale>1 1 1 </scale></mesh>
           </geometry>
 
       </visual>
@@ -60,7 +60,7 @@
       <collision name="platform">
           <pose>0 0.0 -4.5960578 0 0 0</pose>
           <geometry>
-              <mesh><uri>model://RFAL_land/meshes/RFALBig.stl</uri><scale>1 1 1</scale></mesh>
+              <mesh><uri>model://RFAL_land/meshes/RFALBig2.stl</uri><scale>1 1 1</scale></mesh>
           </geometry>
       </collision>
     
