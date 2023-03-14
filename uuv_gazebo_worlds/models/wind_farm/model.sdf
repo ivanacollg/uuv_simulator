@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+
+  <model name="wind_farm">
+    <static>true</static>
+    <link name="link">
+      <visual name="ground">
+        <cast_shadows>false</cast_shadows>
+        <pose>0 30 -10 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>200 200 .1</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/sand.material</uri>
+            <name>UUVSimulator/SandAndStones</name>
+          </script>
+        </material>
+      </visual>
+
+      <collision name="ground">
+        <pose>0 30 -10 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>200 200 .1</size>
+          </box>
+        </geometry>
+      </collision>
+
+    
+      <visual name="platform_1">
+          <cast_shadows>false</cast_shadows>
+          <pose>0 30 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </visual>
+
+      <collision name="platform_1">
+          <pose>0 30 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </collision>
+
+      <visual name="platform_2">
+          <cast_shadows>false</cast_shadows>
+          <pose>-70 30 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </visual>
+
+      <collision name="platform_2">
+          <pose>-70 30 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </collision>
+
+      <visual name="platform_3">
+          <cast_shadows>false</cast_shadows>
+          <pose>70 30 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </visual>
+
+      <collision name="platform_3">
+          <pose>70 30 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </collision>
+
+
+      <visual name="platform_4">
+          <cast_shadows>false</cast_shadows>
+          <pose>70 -40 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </visual>
+
+      <collision name="platform_4">
+          <pose>70 -40 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </collision>
+
+      <visual name="platform_5">
+          <cast_shadows>false</cast_shadows>
+          <pose>0 -40 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </visual>
+
+      <collision name="platform_5">
+          <pose>0 -40 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </collision>
+
+      <visual name="platform_6">
+          <cast_shadows>false</cast_shadows>
+          <pose>-70 -40 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </visual>
+
+      <collision name="platform_6">
+          <pose>-70 -40 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/turbine_jacket.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </collision>
+
+      <visual name="mono">
+          <cast_shadows>false</cast_shadows>
+          <pose>0 100 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/mono_pile.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </visual>s
+
+      <collision name="mono">
+          <pose>0 100 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://wind_farm/meshes/mono_pile.stl</uri><scale> 1 1 1 </scale></mesh>
+          </geometry>
+      </collision>
+
+      
+
+    </link>
+  </model>
+</sdf>
