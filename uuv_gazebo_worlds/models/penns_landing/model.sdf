@@ -49,7 +49,7 @@
           <cast_shadows>false</cast_shadows>
           <pose>0 0 0 0 0 0</pose>
           <geometry>
-              <mesh><uri>model://penns_landing/meshes/main.stl</uri><scale>1 1 1 </scale></mesh>
+              <mesh><uri>model://penns_landing/meshes/main1.stl</uri><scale>1 1 1 </scale></mesh>
           </geometry>
 
       </visual>
@@ -57,7 +57,7 @@
       <collision name="platform">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
-              <mesh><uri>model://penns_landing/meshes/main.stl</uri><scale>1 1 1 </scale></mesh>
+              <mesh><uri>model://penns_landing/meshes/main1.stl</uri><scale>1 1 1 </scale></mesh>
           </geometry>
       </collision>
 
@@ -65,7 +65,7 @@
 
       <visual name="dread">
           <cast_shadows>false</cast_shadows>
-          <pose>150 35 40 3.14159 0 -1.5708</pose>
+          <pose>150 43 38 3.14159 0 -1.5708</pose>
           <geometry>
               <mesh><uri>model://penns_landing/meshes/dread.stl</uri><scale>0.5 0.5 0.5 </scale></mesh>
           </geometry>
@@ -73,25 +73,25 @@
       </visual>
 
       <collision name="dread">
-          <pose>150 35 40 3.14159 0 -1.5708</pose>
+          <pose>150 43 38 3.14159 0 -1.5708</pose>
           <geometry>
               <mesh><uri>model://penns_landing/meshes/dread.stl</uri><scale>0.5 0.5 0.5 </scale></mesh>
           </geometry>
       </collision>
 
 
-      <visual name="galleon">
+      <visual name="net">
           <cast_shadows>false</cast_shadows>
-          <pose>-30 45 -10 1.5708 0</pose>
+          <pose>-30 50 -15 1.5708 0</pose>
           <geometry>
-              <mesh><uri>model://penns_landing/meshes/galleon.stl</uri><scale>0.25 0.25 0.25 </scale></mesh>
+              <mesh><uri>model://penns_landing/meshes/single_net.stl</uri><scale>0.25 0.25 0.25 </scale></mesh>
           </geometry>
       </visual>
 
-      <collision name="galleon">
-          <pose>-30 45 -10 0 1.5708 0 </pose>
+      <collision name="net">
+          <pose>-30 50 -15 0 1.5708 0 </pose>
           <geometry>
-              <mesh><uri>model://penns_landing/meshes/galleon.stl</uri><scale>0.25 0.25 0.25 </scale></mesh>
+              <mesh><uri>model://penns_landing/meshes/single_net.stl</uri><scale>0.25 0.25 0.25 </scale></mesh>
           </geometry>
       </collision>
 
