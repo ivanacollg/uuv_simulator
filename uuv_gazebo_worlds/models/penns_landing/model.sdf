@@ -49,7 +49,7 @@
           <cast_shadows>false</cast_shadows>
           <pose>0 0 0 0 0 0</pose>
           <geometry>
-              <mesh><uri>model://penns_landing/meshes/main1.stl</uri><scale>1 1 1 </scale></mesh>
+              <mesh><uri>model://penns_landing/meshes/main2.stl</uri><scale>1 1 1 </scale></mesh>
           </geometry>
 
       </visual>
@@ -57,7 +57,7 @@
       <collision name="platform">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
-              <mesh><uri>model://penns_landing/meshes/main1.stl</uri><scale>1 1 1 </scale></mesh>
+              <mesh><uri>model://penns_landing/meshes/main2.stl</uri><scale>1 1 1 </scale></mesh>
           </geometry>
       </collision>
 
@@ -80,18 +80,18 @@
       </collision>
 
 
-      <visual name="net">
+      <visual name="galleon">
           <cast_shadows>false</cast_shadows>
           <pose>-30 50 -15 1.5708 0</pose>
           <geometry>
-              <mesh><uri>model://penns_landing/meshes/single_net.stl</uri><scale>0.25 0.25 0.25 </scale></mesh>
+              <mesh><uri>model://penns_landing/meshes/galleon.stl</uri><scale>0.25 0.25 0.25 </scale></mesh>
           </geometry>
       </visual>
 
-      <collision name="net">
+      <collision name="galleon">
           <pose>-30 50 -15 0 1.5708 0 </pose>
           <geometry>
-              <mesh><uri>model://penns_landing/meshes/single_net.stl</uri><scale>0.25 0.25 0.25 </scale></mesh>
+              <mesh><uri>model://penns_landing/meshes/galleon.stl</uri><scale>0.25 0.25 0.25 </scale></mesh>
           </geometry>
       </collision>
 
