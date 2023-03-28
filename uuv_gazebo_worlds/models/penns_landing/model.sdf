@@ -49,7 +49,7 @@
           <cast_shadows>false</cast_shadows>
           <pose>0 0 0 0 0 0</pose>
           <geometry>
-              <mesh><uri>model://penns_landing/meshes/main2.stl</uri><scale>1 1 1 </scale></mesh>
+              <mesh><uri>model://penns_landing/meshes/main4.stl</uri><scale>1 1 1 </scale></mesh>
           </geometry>
 
       </visual>
@@ -57,7 +57,7 @@
       <collision name="platform">
           <pose>0 0 0 0 0 0</pose>
           <geometry>
-              <mesh><uri>model://penns_landing/meshes/main2.stl</uri><scale>1 1 1 </scale></mesh>
+              <mesh><uri>model://penns_landing/meshes/main4.stl</uri><scale>1 1 1 </scale></mesh>
           </geometry>
       </collision>
 
