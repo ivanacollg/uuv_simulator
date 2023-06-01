@@ -20,3 +20,5 @@ __pycache__
 
 # Documentation
 docs/build
+
+uuv_gazebo_worlds/models/fish_farm/meshes/NetBig.stl
