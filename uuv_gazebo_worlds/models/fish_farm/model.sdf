@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
 
-  <model name="firsh_farm">
+  <model name="fish_farm">
     <static>true</static>
     <link name="link">
       <visual name="ground">
@@ -50,7 +50,7 @@
           <cast_shadows>false</cast_shadows>
           <pose>40 0 -43 0 0 0</pose>
           <geometry>
-              <mesh><uri>model://fish_farm/meshes/Net.stl</uri><scale>1 1 1 </scale></mesh>
+              <mesh><uri>model://fish_farm/meshes/NetBig.stl</uri><scale>1 1 1 </scale></mesh>
           </geometry>
 
       </visual>
@@ -59,7 +59,7 @@
       <collision name="platform">
           <pose>40 0 -43 0 0 0</pose>
           <geometry>
-              <mesh><uri>model://fish_farm/meshes/Net.stl</uri><scale>1 1 1</scale></mesh>
+              <mesh><uri>model://fish_farm/meshes/NetBig.stl</uri><scale>1 1 1</scale></mesh>
           </geometry>
       </collision>
 

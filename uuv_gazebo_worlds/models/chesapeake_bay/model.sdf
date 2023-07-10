@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+
+  <model name="chesapeake_bay">
+      <static>true</static>
+      <link name="link">
+        <visual name="ground">
+          <cast_shadows>false</cast_shadows>
+          <pose>0 0 -50 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1800 1000 .1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://Media/materials/scripts/sand.material</uri>
+              <name>UUVSimulator/SandAndStones</name>
+            </script>
+          </material>
+        </visual>
+
+        <collision name="ground">
+          <pose> 0 0 -50 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1800 1000 .1</size>
+            </box>
+          </geometry>
+        </collision>
+
+      <!--visual name="surface">
+        <pose>90 100 0 0 0 0</pose>       
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <box>                        
+            <size>1000 1000 .1</size>
+          </box>
+        </geometry>                
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/water.material</uri>
+            <name>UUVSimulator/StaticWater</name>
+          </script>
+        </material>
+      </visual!-->
+
+
+      <visual name="platform">
+          <cast_shadows>false</cast_shadows>
+          <pose>70 30 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://chesapeake_bay/meshes/bay.stl</uri><scale>100 100 100 </scale></mesh>
+          </geometry>
+
+      </visual>
+
+    
+      <collision name="platform">
+          <pose>70 30 0 0 0 0</pose>
+          <geometry>
+              <mesh><uri>model://chesapeake_bay/meshes/bay.stl</uri><scale>100 100 100</scale></mesh>
+          </geometry>
+      </collision>
+
+
+    </link>
+  </model>
+</sdf>
