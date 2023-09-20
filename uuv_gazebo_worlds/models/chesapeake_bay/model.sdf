@@ -29,12 +29,12 @@
           </geometry>
         </collision>
 
-      <!--visual name="surface">
-        <pose>90 100 0 0 0 0</pose>       
+      <visual name="surface">
+        <pose>0 -1 0 0 0 0</pose>       
         <cast_shadows>false</cast_shadows>
         <geometry>
           <box>                        
-            <size>1000 1000 .1</size>
+            <size>1800 1000 .1</size>
           </box>
         </geometry>                
         <material>
@@ -43,7 +43,7 @@
             <name>UUVSimulator/StaticWater</name>
           </script>
         </material>
-      </visual!-->
+      </visual>
 
 
       <visual name="platform">
