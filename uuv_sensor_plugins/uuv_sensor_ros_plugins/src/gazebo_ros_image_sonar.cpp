@@ -31,24 +31,7 @@
  *
  */
 
-#include <algorithm>
-#include <assert.h>
-#include <boost/thread/thread.hpp>
-#include <boost/bind.hpp>
-
-//#include <smarc_gazebo_ros_plugins/gazebo_ros_image_sonar.h>
 #include <uuv_sensor_ros_plugins/gazebo_ros_image_sonar.hh>
-#include <gazebo/sensors/Sensor.hh>
-#include <sdf/sdf.hh>
-#include <gazebo/sensors/SensorTypes.hh>
-
-#include <sensor_msgs/point_cloud2_iterator.h>
-
-#include <tf/tf.h>
-
-#include <sensor_msgs/image_encodings.h>
-#include <cv_bridge/cv_bridge.h>
-#include <opencv2/core/core.hpp>
 
 namespace gazebo
 {
@@ -86,7 +69,7 @@ void GazeboRosImageSonar::Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf)
 
   if (!this->parentSensor)
   {
-    gzerr << "DepthCameraPlugin not attached to a depthCamera sensor\n";
+    gzerr << "ImagingSonarROSPlugin not attached to a depthCamera sensor\n";
     return;
   }
 
@@ -128,28 +111,10 @@ void GazeboRosImageSonar::Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf)
   this->format_ = this->format;
   this->camera_ = this->depthCamera;
 
-  // using a different default
-  if (!_sdf->HasElement("imageTopicName"))
-    this->image_topic_name_ = "ir/image_raw";
-  if (!_sdf->HasElement("cameraInfoTopicName"))
-    this->camera_info_topic_name_ = "ir/camera_info";
-
-  // point cloud stuff
-  if (!_sdf->HasElement("pointCloudTopicName"))
-    this->point_cloud_topic_name_ = "points";
+  if (!_sdf->HasElement("sonarGroupTopicName"))
+    this->sonar_group_topic_name_ = "imaging_sonar";
   else
-    this->point_cloud_topic_name_ = _sdf->GetElement("pointCloudTopicName")->Get<std::string>();
-
-  // depth image stuff
-  if (!_sdf->HasElement("depthImageTopicName"))
-    this->depth_image_topic_name_ = "depth/image_raw";
-  else
-    this->depth_image_topic_name_ = _sdf->GetElement("depthImageTopicName")->Get<std::string>();
-
-  if (!_sdf->HasElement("depthImageCameraInfoTopicName"))
-    this->depth_image_camera_info_topic_name_ = "depth/camera_info";
-  else
-    this->depth_image_camera_info_topic_name_ = _sdf->GetElement("depthImageCameraInfoTopicName")->Get<std::string>();
+    this->sonar_group_topic_name_ = _sdf->GetElement("sonarGroupTopicName")->Get<std::string>();
 
   if (!_sdf->HasElement("pointCloudCutoff"))
     this->point_cloud_cutoff_ = 0.4;
@@ -170,9 +135,10 @@ void GazeboRosImageSonar::Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf)
 
 void GazeboRosImageSonar::Advertise()
 {
+  gzerr << "Adversiting sonar: " + sonar_group_topic_name_<< std::endl;
   ros::AdvertiseOptions point_cloud_ao =
     ros::AdvertiseOptions::create<sensor_msgs::PointCloud2 >(
-      this->point_cloud_topic_name_,1,
+      this->sonar_group_topic_name_+"/points",1,
       boost::bind( &GazeboRosImageSonar::PointCloudConnect,this),
       boost::bind( &GazeboRosImageSonar::PointCloudDisconnect,this),
       ros::VoidPtr(), &this->camera_queue_);
@@ -180,7 +146,7 @@ void GazeboRosImageSonar::Advertise()
 
   ros::AdvertiseOptions depth_image_ao =
     ros::AdvertiseOptions::create< sensor_msgs::Image >(
-      this->depth_image_topic_name_,1,
+      this->sonar_group_topic_name_+"/depth",1,
       boost::bind( &GazeboRosImageSonar::DepthImageConnect,this),
       boost::bind( &GazeboRosImageSonar::DepthImageDisconnect,this),
       ros::VoidPtr(), &this->camera_queue_);
@@ -188,7 +154,7 @@ void GazeboRosImageSonar::Advertise()
 
   ros::AdvertiseOptions normal_image_ao =
     ros::AdvertiseOptions::create< sensor_msgs::Image >(
-      this->depth_image_topic_name_+"_normals",1,
+      this->sonar_group_topic_name_+"/depth_normals",1,
       boost::bind( &GazeboRosImageSonar::NormalImageConnect,this),
       boost::bind( &GazeboRosImageSonar::NormalImageDisconnect,this),
       ros::VoidPtr(), &this->camera_queue_);
@@ -196,7 +162,7 @@ void GazeboRosImageSonar::Advertise()
 
   ros::AdvertiseOptions multibeam_image_ao =
     ros::AdvertiseOptions::create< sensor_msgs::Image >(
-      this->depth_image_topic_name_+"_multibeam",1,
+      this->sonar_group_topic_name_+"/depth_multibeam",1,
       boost::bind( &GazeboRosImageSonar::MultibeamImageConnect,this),
       boost::bind( &GazeboRosImageSonar::MultibeamImageDisconnect,this),
       ros::VoidPtr(), &this->camera_queue_);
@@ -204,7 +170,7 @@ void GazeboRosImageSonar::Advertise()
 
   ros::AdvertiseOptions sonar_image_ao =
     ros::AdvertiseOptions::create< sensor_msgs::Image >(
-      this->depth_image_topic_name_+"_sonar",1,
+      this->sonar_group_topic_name_+"/sonar",1,
       boost::bind( &GazeboRosImageSonar::SonarImageConnect,this),
       boost::bind( &GazeboRosImageSonar::SonarImageDisconnect,this),
       ros::VoidPtr(), &this->camera_queue_);
@@ -212,7 +178,7 @@ void GazeboRosImageSonar::Advertise()
 
   ros::AdvertiseOptions raw_sonar_image_ao =
     ros::AdvertiseOptions::create< sensor_msgs::Image >(
-      this->depth_image_topic_name_+"_raw_sonar",1,
+      this->sonar_group_topic_name_+"/raw_sonar",1,
       boost::bind( &GazeboRosImageSonar::RawSonarImageConnect,this),
       boost::bind( &GazeboRosImageSonar::RawSonarImageDisconnect,this),
       ros::VoidPtr(), &this->camera_queue_);
@@ -220,7 +186,7 @@ void GazeboRosImageSonar::Advertise()
 
   ros::AdvertiseOptions depth_image_camera_info_ao =
     ros::AdvertiseOptions::create<sensor_msgs::CameraInfo>(
-        this->depth_image_camera_info_topic_name_,1,
+        this->sonar_group_topic_name_+"/camera_info",1,
         boost::bind( &GazeboRosImageSonar::DepthInfoConnect,this),
         boost::bind( &GazeboRosImageSonar::DepthInfoDisconnect,this),
         ros::VoidPtr(), &this->camera_queue_);
@@ -709,7 +675,7 @@ cv::Mat GazeboRosImageSonar::ConstructSonarImage(cv::Mat& depth, cv::Mat& normal
   std::vector<cv::Mat> images(3);
   cv::split(normals, images);
 
-  float intensity = 100.; // target strength
+  float intensity = 200.; // target strength
   float SL = 200.; // source level
   float NL = 30; // noise level
   float DI = 0.0; // directivity index
@@ -729,7 +695,7 @@ cv::Mat GazeboRosImageSonar::ConstructSonarImage(cv::Mat& depth, cv::Mat& normal
 
   // TODO: make these into proper parameters
   cv::Mat TS = intensity*images[2]; // target strength, probably dir should be DI
-  cv::Mat TL = 5*depth; // transmission loss
+  cv::Mat TL = 2*depth; // transmission loss
   cv::multiply(TL, dist_matrix_, TL);
   cv::Mat SNR = SL - 2.0*TL - (NL-DI) + TS;
   SNR.setTo(0., SNR < 0.);
@@ -850,13 +816,18 @@ void GazeboRosImageSonar::ApplyMedianFilter(cv::Mat& scan)
 
 cv::Mat GazeboRosImageSonar::ConstructScanImage(cv::Mat& depth, cv::Mat& SNR)
 {
-  int rows = 400; // TODO: add a parameter for this
-  float range = 17.; // TODO: get this from the sensor config instead
+  int rows = 600; // TODO: add a parameter for this
+  float range = 30.; // TODO: get this from the sensor config instead
   
   float fov = depthCamera->HFOV().Degree();
   int cols = 2*int(float(rows)*sin(M_PI/180.*fov/2.))+20;
 
+  //std::cout << cols << std::endl;
+  int beams = 512;
+
   cv::Mat scan = cv::Mat::zeros(rows, cols, CV_32FC1);
+  cv::Mat scanPolar = cv::Mat::zeros(rows, beams, CV_32FC1);
+  
   //float fov = 180./M_PI*2.*asin(this->cx_/this->focal_length_);
   cv::Point center(scan.cols/2, scan.rows);
   cv::Size full_axes(scan.rows, scan.rows);
@@ -865,8 +836,11 @@ cv::Mat GazeboRosImageSonar::ConstructScanImage(cv::Mat& depth, cv::Mat& SNR)
   cv::ellipse(scan, center, third_axes, -90, -fov/2., fov/2., 0, -1);
 
   float mapped_range = float(scan.rows);
-  
-  for (int i = 0; i < depth.rows; ++i) {
+
+  //set up a normal distrubution
+  std::normal_distribution<double> speckle_dist(.2, 0.1);
+
+  for (int i = 367; i < 427; ++i) {
     for (int j = 0; j < depth.cols; ++j) {
       float d = depth.at<float>(i, j);
 	  //uchar a = SNR.at<uchar>(i, j);
@@ -878,30 +852,48 @@ cv::Mat GazeboRosImageSonar::ConstructScanImage(cv::Mat& depth, cv::Mat& SNR)
 	  float y = (float(i) - this->cy_)/this->focal_length_;
 	  float z = 1.;
 
-	  if (false) {
-		z = d;
-      }
-	  else {
 		z = d*sqrt(y*y + z*z);
-      }
-      x *= z; y *= z;
+    x *= z; 
+    y *= z;
 
 	  int pi = scan.rows - 1 - int(z/range*mapped_range);
 	  int pj = scan.cols/2 + int(x/range*mapped_range);
-      if (pi < scan.rows && pi > 0 && pj < scan.cols && pj > 0 && x*x + z*z < range*range) {      
-	    scan.at<float>(pi, pj) = a;
+
+    if (pi < scan.rows && pi > 0 && pj < scan.cols && pj > 0 && x*x + z*z < range*range){      
+    
+      if( a > 0.2){
+        scan.at<float>(pi, pj) = a;
+      }else{
+        scan.at<float>(pi, pj) = fabs(speckle_dist(generator));
       }
+    }
+
+    //populate polar coordinates image
+    /*float bearingInt = (180. / M_PI ) * atan(x / z) + 65.;
+    bearingInt = int((beams * bearingInt) / fov);
+    int rangeInt = scanPolar.rows -1 - int(z/range*mapped_range);
+
+    //check to make sure the point is inside the image
+    if(bearingInt <= beams && bearingInt >= 0 && rangeInt <= rows && rangeInt >=0 ){
+      scanPolar.at<float>(rangeInt,bearingInt) = a;
+    }*/
+  
+
     }
   }
   this->ApplyMedianFilter(scan);
   this->ApplySpeckleNoise(scan, fov);
   //this->ApplySmoothing(scan, fov);
 
+
   cv_bridge::CvImage img_bridge;
   img_bridge = cv_bridge::CvImage(this->raw_sonar_image_msg_.header, sensor_msgs::image_encodings::TYPE_32FC1, scan);
   img_bridge.toImageMsg(this->raw_sonar_image_msg_); // from cv_bridge to sensor_msgs::Image
   
+
+  this->raw_sonar_image_msg_.header.stamp = ros::Time::now();
   this->raw_sonar_image_pub_.publish(this->raw_sonar_image_msg_);
+  this->PublishCameraInfo(this->depth_image_camera_info_pub_);
 
   return scan;
 }
@@ -942,9 +934,9 @@ cv::Mat GazeboRosImageSonar::ConstructVisualScanImage(cv::Mat& raw_scan)
   cv::Scalar white(255, 255, 255);
   cv::Size axes1(2./3.*scan.rows, 2./3.*scan.rows);
   cv::Size axes2(1./3.*scan.rows, 1./3.*scan.rows);
-  cv::ellipse(scan, center, axes, -90, -fov/2.-0.5, fov/2., white, 1, cv::LINE_AA); //, int lineType=LINE_8, 0);
-  cv::ellipse(scan, center, axes1, -90, -fov/2., fov/2., white, 1, cv::LINE_AA); //, int lineType=LINE_8, 0);
-  cv::ellipse(scan, center, axes2, -90, -fov/2., fov/2., white, 1, cv::LINE_AA); //, int lineType=LINE_8, 0);
+  cv::ellipse(scan, center, axes, -90, -fov/2.-0.5, fov/2., white, 1, CV_AVX); //, int lineType=LINE_8, 0);
+  cv::ellipse(scan, center, axes1, -90, -fov/2., fov/2., white, 1, CV_AVX); //, int lineType=LINE_8, 0);
+  cv::ellipse(scan, center, axes2, -90, -fov/2., fov/2., white, 1, CV_AVX); //, int lineType=LINE_8, 0);
 
   for (int i = 0; i < 5; ++i) {
     float angle = -fov/2.-0.5 + (fov+0.5)*i/float(5-1);
@@ -955,7 +947,7 @@ cv::Mat GazeboRosImageSonar::ConstructVisualScanImage(cv::Mat& raw_scan)
     cv::Point corner(scan.cols/2+cornerx, scan.rows-cornery); 
     //cv::line(scan, center, left_corner, white, 2);
     //cv::line(scan, center, right_corner, white, 2);
-    cv::line(scan, center, corner, white, 1, cv::LINE_AA);
+    cv::line(scan, center, corner, white, 1, CV_AVX);
   }
   
   cv_bridge::CvImage img_bridge;

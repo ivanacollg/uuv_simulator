@@ -34,39 +34,21 @@
 #ifndef GAZEBO_ROS_DEPTH_CAMERA_HH
 #define GAZEBO_ROS_DEPTH_CAMERA_HH
 
-// ros stuff
 #include <ros/ros.h>
-#include <ros/callback_queue.h>
-#include <ros/advertise_options.h>
-
-// ros messages stuff
 #include <sensor_msgs/PointCloud2.h>
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/CameraInfo.h>
-#include <sensor_msgs/fill_image.h>
-#include <std_msgs/Float64.h>
-#include <image_transport/image_transport.h>
+#include <sensor_msgs/image_encodings.h>
+#include <sensor_msgs/point_cloud2_iterator.h>
 
-// gazebo stuff
-#include <sdf/Param.hh>
-#include <gazebo/physics/physics.hh>
-#include <gazebo/transport/TransportTypes.hh>
-#include <gazebo/msgs/MessageTypes.hh>
-#include <gazebo/common/Time.hh>
-#include <gazebo/sensors/SensorTypes.hh>
+#include <gazebo/gazebo.hh>
 #include <gazebo/plugins/DepthCameraPlugin.hh>
-
-// dynamic reconfigure stuff
-#include <gazebo_plugins/GazeboRosCameraConfig.h>
-#include <dynamic_reconfigure/server.h>
-
-// boost stuff
-#include <boost/thread/mutex.hpp>
-
-// camera stuff
 #include <gazebo_plugins/gazebo_ros_camera_utils.h>
 
-#include <opencv2/core.hpp>
+#include <cv_bridge/cv_bridge.h>
+#include <opencv2/opencv.hpp>
+
+#include <boost/bind.hpp>
 
 namespace gazebo
 {
@@ -163,7 +145,8 @@ namespace gazebo
     private: double point_cloud_cutoff_;
 
     /// \brief ROS image topic name
-    private: std::string point_cloud_topic_name_;
+    private: std::string sonar_group_topic_name_;
+
     std::default_random_engine generator;
 
     private: void InfoConnect();
@@ -173,8 +156,6 @@ namespace gazebo
     protected: virtual void PublishCameraInfo();
 
     /// \brief image where each pixel contains the depth information
-    private: std::string depth_image_topic_name_;
-    private: std::string depth_image_camera_info_topic_name_;
     private: int depth_info_connect_count_;
     private: void DepthInfoConnect();
     private: void DepthInfoDisconnect();
