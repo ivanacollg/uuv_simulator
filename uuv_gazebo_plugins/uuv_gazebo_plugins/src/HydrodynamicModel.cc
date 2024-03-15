@@ -75,11 +75,19 @@ HydrodynamicModel::HydrodynamicModel(sdf::ElementPtr _sdf,
       double width = sdfModel->Get<double>("width");
       double length = sdfModel->Get<double>("length");
       double height = sdfModel->Get<double>("height");
+#if GAZEBO_MAJOR_VERSION >= 11
+      ignition::math::AxisAlignedBox boundingBox = ignition::math::AxisAlignedBox(
+        ignition::math::Vector3d(-width / 2, -length / 2, -height / 2),
+        ignition::math::Vector3d(width / 2, length / 2, height / 2));
+      this->SetBoundingBox(boundingBox);
+
+#else
       ignition::math::Box boundingBox = ignition::math::Box(
         ignition::math::Vector3d(-width / 2, -length / 2, -height / 2),
         ignition::math::Vector3d(width / 2, length / 2, height / 2));
       // Setting the the bounding box from the given dimensions
       this->SetBoundingBox(boundingBox);
+#endif
     }
   }
 
@@ -106,7 +114,7 @@ void HydrodynamicModel::ComputeAcc(Eigen::Vector6d _velRel, double _time,
   // Gazebo reports angular accelerations that are off by orders of magnitude.
   double dt = _time - lastTime;
 
-  if (dt <= 0.0)  // Extra caution to prevent division by zero
+  if (dt <= 0.0 || this->lastVelRel(0) == 0.0) // Extra caution to prevent division by zero
     return;
 
   Eigen::Vector6d acc = (_velRel - this->lastVelRel) / dt;
