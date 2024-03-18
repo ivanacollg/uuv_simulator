@@ -174,11 +174,11 @@
         <mass value="${mass}" />
         <origin xyz="0 0 0" rpy="0 0 0" />
       </inertial>
-      <visual>
+      <!--visual>
         <geometry>
           <mesh filename="file://$(find uuv_sensor_ros_plugins)/meshes/oe14-372.dae" scale="1 1 1"/>
         </geometry>
-      </visual>
+      </visual-->
       <xacro:no_collision/>
     </link>
 
