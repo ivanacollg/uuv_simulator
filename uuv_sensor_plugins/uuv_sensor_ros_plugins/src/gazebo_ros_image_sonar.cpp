@@ -126,7 +126,7 @@ void GazeboRosImageSonar::Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf)
   }
   else {
     gzerr << "We do have clip" << std::endl;
-	gzerr << _sdf->GetElement("clip")->GetElement("far")->Get<double>() << std::endl;
+    this->range_ = _sdf->GetElement("clip")->GetElement("far")->Get<double>();
   }
 
   load_connection_ = GazeboRosCameraUtils::OnLoad(boost::bind(&GazeboRosImageSonar::Advertise, this));
@@ -817,7 +817,7 @@ void GazeboRosImageSonar::ApplyMedianFilter(cv::Mat& scan)
 cv::Mat GazeboRosImageSonar::ConstructScanImage(cv::Mat& depth, cv::Mat& SNR)
 {
   int rows = 600; // TODO: add a parameter for this
-  float range = 30.; // TODO: get this from the sensor config instead
+  double range = this->range_;//20.; // TODO: get this from the sensor config instead
   
   float fov = depthCamera->HFOV().Degree();
   int cols = 2*int(float(rows)*sin(M_PI/180.*fov/2.))+20;

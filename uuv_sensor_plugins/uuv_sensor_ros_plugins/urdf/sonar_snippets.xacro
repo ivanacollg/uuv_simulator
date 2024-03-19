@@ -200,16 +200,20 @@
 		    <height>${height}</height>
             <format>R8G8B8</format>
           </image>
-          <clip>
+          <!--clip>
             <near>0.1</near>
-            <far>30</far>
-          </clip>
+            <far>20</far>
+          </clip-->
           <save enabled="true">
             <path>/tmp/camera</path>
           </save>
         </camera>
 	    <plugin filename="libimage_sonar_ros_plugin.so" name="forward_sonar${suffix}_controller">
 		  <!--topicName>${topic}</topicName-->
+          <clip>
+            <near>0.1</near>
+            <far>30</far>
+          </clip>
           <sonarGroupTopicName>forward_sonar_${suffix}</sonarGroupTopicName>
           <imageTopicName>forward_sonar_${suffix}/raw_image</imageTopicName>
           <frameName>forward_sonar${suffix}_optical_frame</frameName>
