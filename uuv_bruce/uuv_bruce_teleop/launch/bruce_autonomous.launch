@@ -1,7 +1,7 @@
 <launch>
     <!-- If you want to generate a ROS bag with the recorded simulated data, set this flag to true -->
     <arg name="record" default="false"/>
-    <arg name="world" default="penns_landing"/>
+    <arg name="world" default="chesapeake_bay"/>
     <arg name="uuv_name" default="rexrov"/>
 
 
@@ -10,10 +10,10 @@
 
     <!-- Add the RexROV vehicle to the simulation (namespace: rexrov) -->
     <include file="$(find uuv_bruce_teleop)/launch/rexrov_sonar.launch">
-        <arg name="x" default="0"/> 
-        <arg name="y" default="0"/> <!--Flip sign -19.3759 19.7557 -2.82806--> 
-        <arg name="z" default="-1.5"/> <!--RFAL land -1 meters, Penns Landing -1.5 meters-->
-        <arg name="yaw" default="0"/>  <!--Flip sign --> 
+        <arg name="x" default="-182.314920999"/> 
+        <arg name="y" default="-31.2673874362"/> <!--Flip sign -19.3759 19.7557 -2.82806--> 
+        <arg name="z" default="-5.0"/> <!--RFAL land -1 meters, Penns Landing -1.5 meters-->
+        <arg name="yaw" default="6.0442566"/>  <!--Flip sign --> 
         <arg name="mode" default="sonar"/>
     </include>
 
@@ -34,12 +34,12 @@
         <rosparam file="$(find uuv_control_cascaded_pid)/config/$(arg uuv_name)/vel_pid_control.yaml" command="load"/>
 
         <node pkg="uuv_control_cascaded_pid" type="AccelerationControl.py" name="acceleration_control"
-            output="screen">
+            output="log">
         <param name="tf_prefix" type="string" value="$(arg uuv_name)/" />
         </node>
 
         <node pkg="uuv_control_cascaded_pid" type="VelocityControl.py" name="velocity_control"
-            output="screen">
+            output="log">
         <remap from="odom" to="/$(arg uuv_name)/pose_gt"/>
         <remap from="cmd_accel" to="/$(arg uuv_name)/cmd_accel"/>
         </node>
@@ -51,7 +51,7 @@
     </include-->
 
     <!-- Open RViz for visualization of sensor data and visualization markers -->
-    <node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find uuv_bruce_teleop)/rviz/bruce_exploration.rviz"/>
+    <!--node name="rviz" pkg="rviz" type="rviz" output="screen" args="-d $(find uuv_bruce_teleop)/rviz/bruce_exploration.rviz"/-->
 
     <!--
     You can run this demo as
@@ -62,4 +62,5 @@
 
     >> roslaunch uuv_control_utils send_waypoints_file.launch uuv_name:=rexrov
     -->
+
 </launch>

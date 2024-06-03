@@ -23,7 +23,7 @@
       <node pkg="uuv_thruster_manager"
             type="thruster_allocator.py"
             name="thruster_allocator"
-            output="screen">
+            output="log">
         <!-- Output directory to store the thruster allocation matrix -->
         <rosparam param="output_dir" subst_value="true">
           $(arg output_dir)
@@ -35,7 +35,7 @@
       <node pkg="uuv_thruster_manager"
             type="thruster_allocator.py"
             name="thruster_allocator"
-            output="screen">
+            output="log">
         <!-- Load thruster allocation matrix -->
         <rosparam file="$(arg tam_file)" command="load"/>
       </node>
